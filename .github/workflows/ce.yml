@@ -1,4 +1,4 @@
-name: DD
+name: CE
 
 on:
   workflow_dispatch:
@@ -6,7 +6,7 @@ on:
 jobs:
 
   job-1:
-    name: Simple Job
+    name: Job-1
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
         run: echo "This is a simple job."
 
   job-2:
-    name: Test on Node ${{ matrix.node-version }}
+    name: Test on ${{ matrix.time }}
     needs: job-1
     runs-on: ubuntu-latest
     strategy:
