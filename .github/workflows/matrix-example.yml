@@ -4,8 +4,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+
+  job-1:
+    name: Simple Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run simple task
+        run: echo "This is a simple job."
+
+  job:
     name: Test on Node ${{ matrix.node-version }}
+    needs: job-1
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
