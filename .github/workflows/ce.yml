@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
       - name: Run simple task
         run: echo "This is a simple job."
 
@@ -26,8 +23,6 @@ jobs:
         time: [300, 600, 900]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
       - name: Sleep for ${{ matrix.time }} seconds
         run: echo "Sleeping for ${{ matrix.time }} seconds..." && sleep ${{ matrix.time }}

@@ -17,7 +17,7 @@ jobs:
         run: echo "This is a simple job."
 
   job-2:
-    name: Test on Node ${{ matrix.node-version }}
+    name: Test on Node ${{ matrix.time }}
     needs: job-1
     runs-on: ubuntu-latest
     strategy:
