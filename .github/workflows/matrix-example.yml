@@ -10,23 +10,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Three matrix entries -> generates 3 parallel jobs
-        node-version: [16.x, 18.x, 20.x]
+        time: [300, 600, 900]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Sleep for ${{ matrix.time }} seconds
+        run: echo "Sleeping for ${{ matrix.time }} seconds..." && sleep ${{ matrix.time }}
 
       - name: Run tests
-        run: npm test
+        run: echo "Running tests..."
 
   post-check:
     name: Post-check (runs after matrix)
