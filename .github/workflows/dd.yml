@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        time: [300, 600, 900]
+        time: [30, 600, 900]
 
     steps:
       - name: Checkout repository
@@ -33,7 +33,7 @@ jobs:
         run: echo "Sleeping for ${{ matrix.time }} seconds..." && sleep ${{ matrix.time }}
 
       - name: Call  CE action
-        run: echo "Running tests..."
+        uses: ./.github/ce.yml        
 
   post-check:
     name: Post-check 
